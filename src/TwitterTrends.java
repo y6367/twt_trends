@@ -37,7 +37,7 @@ public class TwitterTrends {
 
     public String mostTrendingTweet() {
         Tweet result = null;
-        // count is likes + retweets
+        // count contains likes + retweets
         int resultCount = 0;
 
         while (bot.numTweets() > 0) {
