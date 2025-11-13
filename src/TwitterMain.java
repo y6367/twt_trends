@@ -25,9 +25,9 @@ public class TwitterMain {
         System.out.println(mostFrequent);
 
         // TODO: Call your TwitterTrends extension here: 
-        String mostTrending = trends.mostTrendingTweet();
+        Tweet mostTrending = trends.mostTrendingTweet();
 
-        System.out.println("The most trending tweet right now is: " + mostTrending);
+        System.out.println("The most trending tweet right now is: " + mostTrending.getCaption());
 
         // TODO: Uncomment the code below to print out tweets after your extension is implemented
         //          OR Change the code below to print out relevant output from your extension

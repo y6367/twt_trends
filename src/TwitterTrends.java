@@ -1,13 +1,29 @@
+// Joewah Yu
+// 11/10/2025
+// CSE 122
+// C2: Twitter Trends
+// TA: Katharine Zhang
+
 import java.util.*;
 import java.io.*;
+
+// This class analyzes tweets in TweetBot. It takes in tweets and gives us information on these
+// tweets.
 
 public class TwitterTrends {
     private TweetBot bot;
     // TODO: Your Code Here
+
+    // This method takes in tweets from the TweetBot and passes those tweets into our TweetBot.
+    // Returns: Does not return anything
     public TwitterTrends(TweetBot bot) {
         this.bot = bot;
     }
 
+    // This method analyzes all the captions in our tweets and return the word that appears the
+    // most across all the captions of the tweets. We ignore case but keep punctuation when keeping
+    // track of our most frequent word.
+    // Returns: String containing the most frequent word
     public String getMostFrequentWord() {
         String result = "";
         int resultCount = 0;
@@ -24,7 +40,6 @@ public class TwitterTrends {
             }
         }
 
-
         for (String word : map.keySet()) {
             if (map.get(word) > resultCount) {
                 result = word;
@@ -35,12 +50,18 @@ public class TwitterTrends {
         return result;
     }
 
-    public String mostTrendingTweet() {
+    // Creative Extension
+    // This method takes the tweets and counts the number of likes and retweets each post has and
+    // returns the tweet with the most.
+    // Returns: Returns the caption of the tweet with most likes and tweets
+    // Parameters:
+    // - tweets: a collection of our tweets.
+    public Tweet mostTrendingTweet() {
         Tweet result = null;
         // count contains likes + retweets
         int resultCount = 0;
-
-        while (bot.numTweets() > 0) {
+        bot.reset();
+        for (int i = 0; i < bot.numTweets(); i++) {
             Tweet current = bot.nextTweet();
             int count = current.getLikes() + current.getRetweets();
             if (count > resultCount) {
@@ -48,6 +69,6 @@ public class TwitterTrends {
             }
         }
         bot.reset();
-        return result.toString();
+        return result;
     }
 }
