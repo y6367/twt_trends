@@ -7,23 +7,25 @@
 import java.util.*;
 import java.io.*;
 
-// This class analyzes tweets in TweetBot. It takes in tweets and gives us information on these
-// tweets.
+// This class analyzes tweets in TweetBot. It takes in tweets and gives us more information on
+// these tweets.
 
 public class TwitterTrends {
     private TweetBot bot;
     // TODO: Your Code Here
 
-    // This method takes in tweets from the TweetBot and passes those tweets into our TweetBot.
-    // Returns: Does not return anything
+    // This constructor takes in tweets from the TweetBot and passes those tweets into our
+    // TweetBot so we can further analyze the tweets.
+    // Parameters:
+    // - bot: tweets that are going to be further analyzed
     public TwitterTrends(TweetBot bot) {
         this.bot = bot;
     }
 
     // This method analyzes all the captions in our tweets and return the word that appears the
-    // most across all the captions of the tweets. We ignore case but keep punctuation when keeping
-    // track of our most frequent word.
-    // Returns: String containing the most frequent word
+    // most across all the captions of the tweets. We ignore capitalization but keep punctuation
+    // when keeping track of our most frequent word.
+    // Returns: the most frequent word
     public String getMostFrequentWord() {
         String result = "";
         int resultCount = 0;
@@ -53,9 +55,7 @@ public class TwitterTrends {
     // Creative Extension
     // This method takes the tweets and counts the number of likes and retweets each post has and
     // returns the tweet with the most.
-    // Returns: Returns the caption of the tweet with most likes and tweets
-    // Parameters:
-    // - tweets: a collection of our tweets.
+    // Returns: the tweet with most likes and tweets
     public Tweet mostTrendingTweet() {
         Tweet result = null;
         // count contains likes + retweets

@@ -14,8 +14,8 @@ public class TweetBot {
     private List<Tweet> tweets;
     private List<Tweet> viewedTweets = new ArrayList<>();
 
-    // This method takes the given tweets and passes them into our TweetBot. This happens only if
-    // we are passing in more than 1 tweet.
+    // This constructor takes the given tweets and passes them into our TweetBot. This happens
+    // only if we are passing in more than 1 tweet.
     // Exception: If the amount of tweets we are passing in is less than 1, then throw
     // IllegalArgumentException
     // Returns: Does not return anything
@@ -33,7 +33,7 @@ public class TweetBot {
 
     // This method returns the number of tweets in TweetBot, regardless if the tweets have been
     // viewed or not.
-    // Returns: Returns numbers of tweets in TweetBot.
+    // Returns: numbers of tweets in total in TweetBot.
     public int numTweets() {
         return tweets.size() + viewedTweets.size();
     }
@@ -44,10 +44,10 @@ public class TweetBot {
         this.tweets.add(tweet);
     }
 
-    // This method takes views the next tweet and adds it to the collection of viewed tweets. This
-    // happens only if there are still unviewed tweets.
+    // This method views the next unviewed tweet and adds it to the collection of viewed tweets.
+    // This happens only if there are still unviewed tweets.
     // Exception: If the collection of unviewed tweets is empty, then throw IllegalStateException
-    // Returns: Does not return anything
+    // Returns: the next tweet
     public Tweet nextTweet() {
         if (tweets.isEmpty()) {
             throw new IllegalStateException();
@@ -57,8 +57,8 @@ public class TweetBot {
         return result;
     }
 
-    // This method deletes a tweet we have seen in the collection of viewed tweets. This only
-    // happens if we viewed the tweet already.
+    // This method deletes a selected tweet from the collection of viewed tweets. This only
+    // happens if we viewed the selected tweet already.
     // Exception: If the we haven't viewed the tweet yet, then throw IllegalArgumentException
     // Returns: Does not return anything
     // Parameters:
@@ -74,7 +74,8 @@ public class TweetBot {
         }
     }
 
-    // This method makes our viewed tweets unviewed again, in the same original order.
+    // This method makes our viewed tweets unviewed again, in the same order when tweets
+    // were passed.
     // Returns: Does not return anything
     public void reset() {
         int size = viewedTweets.size();
